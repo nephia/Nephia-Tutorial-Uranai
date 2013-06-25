@@ -1,0 +1,7 @@
+*.bak
+*.old
+nytprof.out
+nytprof/
+*.db
+/local/
+/.carton/
