@@ -22,6 +22,10 @@ path '/uranai' => sub {
 
     my $name = $req->param('name');
 
+    if ($name eq '') {
+        return res { redirect('/'); }
+    }
+
     return {
         template => 'uranai.html',
         name     => $req->param('name'),
