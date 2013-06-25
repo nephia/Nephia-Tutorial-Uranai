@@ -1,4 +1,5 @@
 ### common config
+use utf8;
 +{
-    appname => 'Uranai',
+    appname => '占いアプリ',
 };
