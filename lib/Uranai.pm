@@ -1,9 +1,8 @@
 package Uranai;
 use strict;
 use warnings;
+use utf8;
 use Nephia;
-
-our $VERSION = 0.01;
 
 path '/' => sub {
     my $req = shift;
@@ -15,17 +14,24 @@ path '/' => sub {
     };
 };
 
-path '/data' => sub {
+path '/uranai' => sub {
     my $req = shift;
-    return { # return JSON unless {template}
-        #template => 'index.tx',
+
+    my @results = qw/ 大凶 凶 吉 小吉 中吉 大吉 /;
+    my $result = $results[int rand(@results)];
+
+    my $name = $req->param('name');
+
+    return {
+        template => 'uranai.html',
+        name     => $req->param('name'),
+        result   => $result,
         title    => config->{appname},
         envname  => config->{envname},
     };
 };
 
 1;
-
 =head1 NAME
 
 Uranai - Web Application
